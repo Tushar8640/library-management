@@ -6,31 +6,37 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// app.post("/user", async (req, res) => {
-//   try {
-//     const data = req.body;
-//     const user = await User.create(data);
-
-//     res.status(200).send({
-//       status: "success",
-//       message: "user successfully created",
-//       data: user,
-//     });
-//   } catch (error) {
-//     console.log(error);
-//     res.send({
-//       success: "fail",
-//       error: error.message,
-//     });
-//   }
-// });
-
-// routes
-// const  userRouter  = require("./routes/user");
-
-// app.use("/api/v1/user", userRouter);
-
 app.get("/", (req, res) => {
-  res.send("<h1>Your server is connected</h1>");
+  res.send("<h1>Server is listening</h1>");
 });
+app.get("/posts", (req, res) => {
+  const posts = [
+    {
+      id: 1,
+      title: "first post",
+    },
+    {
+      id: 2,
+      title: "second post",
+    },
+    {
+      id: 3,
+      title: "third post",
+    },
+    {
+      id: 4,
+      title: "fourth post",
+    },
+  ];
+  res.json(posts);
+});
+
+// import routes
+// const userRoute = require("./routes/userRoute.js");
+const bookmarkRoute = require("./routes/bookRoutes");
+
+// api routes
+// app.use("/api/v1/user", userRoute);
+app.use("/api/v1/book", bookmarkRoute);
+
 module.exports = app;
