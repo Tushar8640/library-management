@@ -1,13 +1,13 @@
-const { getAllBookmarks } = require("../../services/bookMarkServices");
+const { getAllBooks } = require("../../services/bookServices");
 
 // get all user
-exports.getAllBookmark = async (req, res) => {
+exports.getAllBooks = async (req, res) => {
     try {
-      const bookmarks = await getAllBookmarks();
+      const books = await getAllBooks();
      
       res.status(200).json({
         status: "success",
-        bookmarks,
+        books,
       });
     } catch (error) {
       console.log(error.message);

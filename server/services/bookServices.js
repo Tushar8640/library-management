@@ -22,11 +22,10 @@ exports.addBook = async (data) => {
 // };
 
 // // get all bookmark
-// exports.getAllBookmarks = async () => {
-//   const bookmarks = await Bookmark.find({});
-
-//   return bookmarks;
-// };
+exports.getAllBooks = async () => {
+  const books = await Book.find({});
+  return books;
+};
 
 // // update bookmark
 // exports.updateBookmark = async (id, updatedInfo) => {
