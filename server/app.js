@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-// const User = require("./model/user");
 const app = express();
 
 // middlewares
